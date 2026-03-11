@@ -17,6 +17,7 @@ function playGame (){
     let humanScore = 0
     let computerScore = 0
 
+   /*simplificar funcion*/
     function playRound (human,computer){
         human=human.toLowerCase()
         if (human === "paper"&& computer==="rock"){
@@ -54,21 +55,10 @@ function playGame (){
             console.log ("Score -> HUMAN: " + humanScore + " -Computer: " + computerScore)
         }
     }
-    const humanSelection1=getHumanChoice()
-    const computerSelection1=getComputerChoice()
-    playRound(humanSelection1,computerSelection1)
-    const humanSelection2=getHumanChoice()
-    const computerSelection2=getComputerChoice()
-    playRound(humanSelection2,computerSelection2)
-    const humanSelection3=getHumanChoice()
-    const computerSelection3=getComputerChoice()
-    playRound(humanSelection3,computerSelection3)
-    const humanSelection4=getHumanChoice()
-    const computerSelection4=getComputerChoice()
-    playRound(humanSelection4,computerSelection4)
-    const humanSelection5=getHumanChoice()
-    const computerSelection5=getComputerChoice()
-    playRound(humanSelection5,computerSelection5)
+    
+    for (let i=0; i<5; i++){
+        playRound(getHumanChoice(),getComputerChoice())
+    }
     
     console.log ("THE END")
     console.log ("Final Score -> Human: "+humanScore+ "-Computer: "+computerScore)
@@ -83,3 +73,18 @@ function playGame (){
 }
 
 playGame()
+
+
+const btnRock=document.createElement("button")
+const btnPaper=document.createElement("button")
+const btnScissors=document.createElement("button")
+
+btnRock.textContent="Rock"
+btnPaper.textContent="Paper"
+btnScissors.textContent="Scissors"
+
+const body = document.querySelector("body")
+body.appendChild(btnRock)
+body.appendChild(btnPaper)
+body.appendChild(btnScissors)
+
